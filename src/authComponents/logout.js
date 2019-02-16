@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 
 import { logoutUser } from "../actions/authActions/logout";
 
+//Nothing much going on here - just a basic logout button that kicks off our logout action to redux.
+
 const Logout = props => {
   return (
     <div id="wrapperlogin">

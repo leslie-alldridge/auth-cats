@@ -28,7 +28,7 @@ class LoginForm extends React.Component {
     e.preventDefault();
     const { username, password } = this.state;
     const creds = {
-      username: username.trim(),
+      username: username.trim(), //what does trim do? it removes any whitespace from the input (leading / preceeding space bars)
       password: password.trim()
     };
     this.props.loginUser(creds);
@@ -63,13 +63,13 @@ class LoginForm extends React.Component {
           <button
             onClick={() => {
               this.props.registerToggle();
-              this.handleError();
+              this.handleError(); //if an error was previously shown, we clear it as they're trying again to submit
             }}
           >
             Register
           </button>
         </form>
-
+        {/* If we get an error, render the error msg component */}
         {this.state.errorVisible && <ErrorMessage reducer="auth" />}
       </div>
     );

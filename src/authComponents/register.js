@@ -36,7 +36,7 @@ class RegisterForm extends React.Component {
       return;
     }
     const creds = {
-      username: username.trim(),
+      username: username.trim(), //trim removes any spaces around their input
       password: password.trim()
     };
     this.props.registerUser(creds);
@@ -82,7 +82,7 @@ class RegisterForm extends React.Component {
           <button
             onClick={() => {
               this.props.registerToggle();
-              this.clearError();
+              this.clearError(); //if an error was previously shown, we clear it as they're trying again to submit
             }}
           >
             Back

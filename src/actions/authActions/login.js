@@ -1,9 +1,13 @@
 import axios from "axios";
 import { saveUserToken } from "../../authUtilities/auth";
 
+// Generally we use const here so that in our reducers we can import the const and prevent any typos. Writing strings "like this" won't break the code and this makes it hard to debug. Whereas mistyping a constant will.
+
 export const LOGIN_REQUEST = "LOGIN_REQUEST";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAILURE = "LOGIN_FAILURE";
+
+//There are our functions for redux - please see the cat examples as this part of the project assumes you're comfortable with redux.
 
 function requestLogin() {
   return {
@@ -39,7 +43,7 @@ export function loginUser(creds) {
     dispatch(requestLogin(creds));
 
     return axios
-      .post("/signin", creds)
+      .post("/signin", creds) //creds is the information obtained from the login form
       .then(response => {
         if (!response.ok) {
           // If there was a problem, we want to
@@ -51,10 +55,8 @@ export function loginUser(creds) {
           const userInfo = saveUserToken(response.data.token);
           // Dispatch the success action
           dispatch(receiveLogin(userInfo));
-
-          dispatch(fetchBag(userInfo.username));
         }
       })
-      .catch(err => dispatch(loginError(err.message)));
+      .catch(err => dispatch(loginError(err)));
   };
 }

@@ -2,8 +2,12 @@ import axios from "axios";
 import { receiveLogin } from "./login";
 import { saveUserToken } from "../../authUtilities/auth";
 
+// Generally we use const here so that in our reducers we can import the const and prevent any typos. Writing strings "like this" won't break the code and this makes it hard to debug. Whereas mistyping a constant will.
+
 export const REGISTER_REQUEST = "REGISTER_REQUEST";
 export const REGISTER_FAILURE = "REGISTER_FAILURE";
+
+//There are our functions for redux - please see the cat examples as this part of the project assumes you're comfortable with redux.
 
 function requestRegister(creds) {
   return {
@@ -27,17 +31,14 @@ export function registerUser(creds) {
   return dispatch => {
     // We dispatch requestRegister to kickoff the call to the API
     dispatch(requestRegister(creds));
-
     return axios
       .post("/register", creds)
       .then(response => {
-        console.log(response);
-
         if (response.data.message !== "Authentication successful.") {
           // If there was a problem, we want to
           // dispatch the error condition
           dispatch(registerError("Invalid Credentials"));
-          return Promise.reject(response.data.message);
+          return Promise.reject(response.data.message); //this will send us to the .catch below
         } else {
           // If login was successful, set the token in local storage
           const userInfo = saveUserToken(response.data.token);
@@ -46,8 +47,6 @@ export function registerUser(creds) {
         }
       })
       .catch(err => {
-        console.log(err);
-
         dispatch(registerError(err));
       });
   };
