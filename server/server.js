@@ -3,9 +3,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
-// package to verify jwt tokens
-const verifyJwt = require("express-jwt");
-
 // check these files out for comments
 const auth = require("./auth/auth");
 const crypto = require("./auth/crypto");
@@ -69,17 +66,6 @@ function invalidCredentials(res) {
     errorType: "INVALID_CREDENTIALS"
   });
 }
-
-function getSecret(req, payload, done) {
-  done(null, process.env.JWT_SECRET);
-}
-
-server.use(
-  verifyJwt({
-    secret: getSecret
-  }),
-  auth.handleError
-);
 
 //for all routes that satisfy /api/v1/cats we will use routes defined in our cats routes
 server.use("/api/v1/cats", require("./routes/cats"));
