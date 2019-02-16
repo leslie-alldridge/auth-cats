@@ -23,6 +23,17 @@ yarn start
 ```
 2. Take note of the .env file - you will need to add a secret here that will be used to encode JWT tokens. DO NOT commit this file, add it to a .gitignore. I left mine here for example purposes only. 
 
+3. Routes are protected so without loggin in users will see
+```
+// 20190216221847
+// https://reduxauthcats.herokuapp.com/api/v1/cats
+
+{
+  "message": "Access to this resource was denied.",
+  "error": "No authorization token was found"
+}
+```
+
 ## Is this deployed? 
 Yes, please check out https://reduxauthcats.herokuapp.com/  (Note: may take 20 seconds to load as it's on a free server)
 
