@@ -44,6 +44,10 @@ export function registerUser(creds) {
           const userInfo = saveUserToken(response.data.token);
           // Dispatch the success action
           dispatch(receiveLogin(userInfo));
+          dispatch(getAllAction()); //now that we're logged in go get me my cats
+          //we can find user specific cats now that our userInfo exists in the line above.
+          //adding getUserCats(userInfo.user_name) could be a function that finds cats
+          //whose users matches the user logged in.
         }
       })
       .catch(err => {

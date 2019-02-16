@@ -36285,6 +36285,10 @@ function registerUser(creds) {
         var userInfo = Object(_authUtilities_auth__WEBPACK_IMPORTED_MODULE_2__["saveUserToken"])(response.data.token); // Dispatch the success action
 
         dispatch(Object(_login__WEBPACK_IMPORTED_MODULE_1__["receiveLogin"])(userInfo));
+        dispatch(getAllAction()); //now that we're logged in go get me my cats
+        //we can find user specific cats now that our userInfo exists in the line above.
+        //adding getUserCats(userInfo.user_name) could be a function that finds cats
+        //whose users matches the user logged in.
       }
     }).catch(function (err) {
       dispatch(registerError(err));
