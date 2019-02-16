@@ -45,20 +45,22 @@ class App extends Component {
             <RegisterForm registerToggle={this.registerToggle} />
           )}
 
-          {/* Only authenticated users can see logout */}
+          {/* Only authenticated users can see logout and our other cat components - you can try force change the state but routes are protected so they'll just load indefinitely and no data will show */}
           {this.props.auth.isAuthenticated && (
-            <Logout user={this.props.auth.user.username} />
-          )}
+            <React.Fragment>
+              <Logout user={this.props.auth.user.username} />
 
-          <GetAll />
-          <br />
-          <GetOne />
-          <br />
-          <SaveOne />
-          <br />
-          <DeleteOne />
-          <br />
-          <EditOne />
+              <GetAll />
+              <br />
+              <GetOne />
+              <br />
+              <SaveOne />
+              <br />
+              <DeleteOne />
+              <br />
+              <EditOne />
+            </React.Fragment>
+          )}
         </header>
       </div>
     );

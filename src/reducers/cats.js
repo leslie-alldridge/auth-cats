@@ -38,6 +38,14 @@ export default function cats(state = initialState, action) {
         err: null,
         err2: null
       };
+    case "LOGOUT_SUCCESS":
+      return {
+        ...state,
+        loading: false,
+        catData: null,
+        err: null,
+        err2: null
+      };
     default:
       return state;
   }

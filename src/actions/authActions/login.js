@@ -45,7 +45,7 @@ export function loginUser(creds) {
     return axios
       .post("/signin", creds) //creds is the information obtained from the login form
       .then(response => {
-        if (!response.ok) {
+        if (response.data.message !== "Authentication successful.") {
           // If there was a problem, we want to
           // dispatch the error condition
           dispatch(loginError(response.data.message));
