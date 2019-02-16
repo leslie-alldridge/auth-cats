@@ -1,6 +1,7 @@
 import axios from "axios";
 import { receiveLogin } from "./login";
 import { saveUserToken } from "../../authUtilities/auth";
+import { getAllAction } from "../getAll";
 
 // Generally we use const here so that in our reducers we can import the const and prevent any typos. Writing strings "like this" won't break the code and this makes it hard to debug. Whereas mistyping a constant will.
 
@@ -51,7 +52,7 @@ export function registerUser(creds) {
         }
       })
       .catch(err => {
-        dispatch(registerError(err));
+        dispatch(registerError(err.response.statusText));
       });
   };
 }
