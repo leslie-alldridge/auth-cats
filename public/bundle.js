@@ -36114,6 +36114,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _authUtilities_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../authUtilities/auth */ "./src/authUtilities/auth.js");
+/* harmony import */ var _getAll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../getAll */ "./src/actions/getAll.js");
+
 
  // Generally we use const here so that in our reducers we can import the const and prevent any typos. Writing strings "like this" won't break the code and this makes it hard to debug. Whereas mistyping a constant will.
 
@@ -36165,6 +36167,10 @@ function loginUser(creds) {
         var userInfo = Object(_authUtilities_auth__WEBPACK_IMPORTED_MODULE_1__["saveUserToken"])(response.data.token); // Dispatch the success action
 
         dispatch(receiveLogin(userInfo));
+        dispatch(Object(_getAll__WEBPACK_IMPORTED_MODULE_2__["getAllAction"])()); //now that we're logged in go get me my cats
+        //we can find user specific cats now that our userInfo exists in the line above.
+        //adding getUserCats(userInfo.user_name) could be a function that finds cats
+        //whose users matches the user logged in.
       }
     }).catch(function (err) {
       return dispatch(loginError(err));
