@@ -21,9 +21,10 @@ or
 yarn run webpack
 yarn start
 ```
+2. Take note of the .env file - you will need to add a secret here that will be used to encode JWT tokens. DO NOT commit this file, add it to a .gitignore. I left mine here for example purposes only. 
 
 ## Is this deployed? 
-Yes, please check out https://reduxcats.herokuapp.com/  (Note: may take 20 seconds to load as it's on a free server)
+Yes, please check out https://reduxauthcats.herokuapp.com/  (Note: may take 20 seconds to load as it's on a free server)
 
 ## Can I improve this code
 Certainly! I quickly created this without making it perfect. The idea was to include some mistakes or less efficient methods to encourage students to submit pull requests.
