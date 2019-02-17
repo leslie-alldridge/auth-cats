@@ -14,10 +14,16 @@
 1. Clone repository and run the commands below (first commands for development, second commands without page reload)
 ```
 yarn
+yarn knex migrate:latest
+yarn knex seed:run
 yarn dev 
+
 
 or 
 
+yarn
+yarn knex migrate:latest
+yarn knex seed:run
 yarn run webpack
 yarn start
 ```
