@@ -29,7 +29,7 @@ yarn start
 ```
 2. Take note of the .env file - you will need to add a secret here that will be used to encode JWT tokens. DO NOT commit this file, add it to a .gitignore. I left mine here for example purposes only. 
 
-3. Routes are protected so without loggin in users will see
+3. Routes are protected so without login in users will see
 ```
 // 20190216221847
 // https://reduxauthcats.herokuapp.com/api/v1/cats
