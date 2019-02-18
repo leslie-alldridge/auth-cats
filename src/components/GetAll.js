@@ -4,13 +4,6 @@ import Loading from "./loading";
 import { getAllAction } from "../actions/getAll";
 
 class GetAll extends Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount = () => {
-    this.props.getAll();
-  };
 
   getAll = () => {
     this.props.getAll();

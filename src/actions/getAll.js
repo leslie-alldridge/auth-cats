@@ -10,7 +10,7 @@ const token = get("token");
 axios.defaults.headers.common = { Authorization: `bearer ${token}` };
 
 // This will make an API request to get all cats, while telling redux its loading and what response comes back
-export function getAllAction() {
+export function getAllAction() {  
   return function(dispatch) {
     dispatch(loading());
     axios.get("/api/v1/cats/").then(response => {

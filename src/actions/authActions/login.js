@@ -55,7 +55,8 @@ export function loginUser(creds) {
           // If login was successful, set the token in local storage
           const userInfo = saveUserToken(response.data.token);
           // Dispatch the success action
-          dispatch(receiveLogin(userInfo));
+
+          dispatch(receiveLogin(userInfo));          
           dispatch(getAllAction()); //now that we're logged in go get me my cats
           //we can find user specific cats now that our userInfo exists in the line above.
           //adding getUserCats(userInfo.user_name) could be a function that finds cats

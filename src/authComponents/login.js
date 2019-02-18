@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import {getAllAction} from '../actions/getAll'
 import { loginUser } from "../actions/authActions/login";
 import ErrorMessage from "./ErrorMessage";
 
@@ -32,6 +32,7 @@ class LoginForm extends React.Component {
       password: password.trim()
     };
     this.props.loginUser(creds);
+    // this.props.getAll()
   }
 
   handleError() {
@@ -80,6 +81,9 @@ const mapDispatchToProps = dispatch => {
   return {
     loginUser: creds => {
       return dispatch(loginUser(creds));
+    },
+    getAll: () => {
+      return dispatch(getAllAction())
     }
   };
 };

@@ -36666,8 +36666,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-/* harmony import */ var _actions_authActions_login__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/authActions/login */ "./src/actions/authActions/login.js");
-/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ErrorMessage */ "./src/authComponents/ErrorMessage.js");
+/* harmony import */ var _actions_getAll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../actions/getAll */ "./src/actions/getAll.js");
+/* harmony import */ var _actions_authActions_login__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../actions/authActions/login */ "./src/actions/authActions/login.js");
+/* harmony import */ var _ErrorMessage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./ErrorMessage */ "./src/authComponents/ErrorMessage.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; var ownKeys = Object.keys(source); if (typeof Object.getOwnPropertySymbols === 'function') { ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) { return Object.getOwnPropertyDescriptor(source, sym).enumerable; })); } ownKeys.forEach(function (key) { _defineProperty(target, key, source[key]); }); } return target; }
@@ -36689,6 +36690,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -36734,7 +36736,7 @@ function (_React$Component) {
         //what does trim do? it removes any whitespace from the input (leading / preceeding space bars)
         password: password.trim()
       };
-      this.props.loginUser(creds);
+      this.props.loginUser(creds); // this.props.getAll()
     }
   }, {
     key: "handleError",
@@ -36770,7 +36772,7 @@ function (_React$Component) {
           _this2.handleError(); //if an error was previously shown, we clear it as they're trying again to submit
 
         }
-      }, "Register")), this.state.errorVisible && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      }, "Register")), this.state.errorVisible && react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_ErrorMessage__WEBPACK_IMPORTED_MODULE_4__["default"], {
         reducer: "auth"
       }));
     }
@@ -36782,7 +36784,10 @@ function (_React$Component) {
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
   return {
     loginUser: function loginUser(creds) {
-      return dispatch(Object(_actions_authActions_login__WEBPACK_IMPORTED_MODULE_2__["loginUser"])(creds));
+      return dispatch(Object(_actions_authActions_login__WEBPACK_IMPORTED_MODULE_3__["loginUser"])(creds));
+    },
+    getAll: function getAll() {
+      return dispatch(Object(_actions_getAll__WEBPACK_IMPORTED_MODULE_2__["getAllAction"])());
     }
   };
 };
@@ -37365,16 +37370,18 @@ var GetAll =
 function (_Component) {
   _inherits(GetAll, _Component);
 
-  function GetAll(props) {
+  function GetAll() {
+    var _getPrototypeOf2;
+
     var _this;
 
     _classCallCheck(this, GetAll);
 
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(GetAll).call(this, props));
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
 
-    _defineProperty(_assertThisInitialized(_this), "componentDidMount", function () {
-      _this.props.getAll();
-    });
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(GetAll)).call.apply(_getPrototypeOf2, [this].concat(args)));
 
     _defineProperty(_assertThisInitialized(_this), "getAll", function () {
       _this.props.getAll();
