@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Loading from "./loading";
-import { getOneAction } from "../actions/getOne";
+import { getOneAction } from "../../actions/cats/getOne";
 
 class GetOne extends Component {
   constructor(props) {

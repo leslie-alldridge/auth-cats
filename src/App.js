@@ -4,16 +4,16 @@ import { connect } from "react-redux";
 import "./App.css";
 
 //cats imports
-import GetAll from "./components/GetAll";
-import GetOne from "./components/GetOne";
-import SaveOne from "./components/saveOne";
-import DeleteOne from "./components/DeleteOne";
-import EditOne from "./components/EditOne";
+import GetAll from "./components/cats/GetAll";
+import GetOne from "./components/cats/GetOne";
+import SaveOne from "./components/cats/saveOne";
+import DeleteOne from "./components/cats/DeleteOne";
+import EditOne from "./components/cats/EditOne";
 
 //auth imports
-import LoginForm from "./authComponents/login";
-import RegisterForm from "./authComponents/register";
-import Logout from "./authComponents/logout";
+import LoginForm from "./components/auth/login";
+import RegisterForm from "./components/auth/register";
+import Logout from "./components/auth/logout";
 
 class App extends Component {
   constructor(props) {

@@ -1,28 +1,41 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { editOneAction } from "../actions/editOne";
+import { saveOneAction } from "../../actions/cats/saveOne";
 
-class EditOne extends Component {
+class SaveOne extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      id: 0,
       name: "",
-      age: 0,
+      age: "",
       location: "",
       error: false
     };
   }
 
   save = () => {
-    const { id, name, age, location } = this.state;
-    this.props.EditOne(id, name, age, location);
-    this.setState({
-      id: 0,
-      name: "",
-      age: 0,
-      location: ""
-    });
+    const { name, age, location } = this.state;
+    if (this.state.age === "") {
+      this.setState({
+        error: true
+      });
+    } else if (this.state.name === "") {
+      this.setState({
+        error: true
+      });
+    } else if (this.state.location === "") {
+      this.setState({
+        error: true
+      });
+    } else {
+      this.setState({ error: false });
+      this.props.SaveOne(name, age, location);
+      this.setState({
+        name: "",
+        age: "",
+        location: ""
+      });
+    }
   };
 
   handleChange = e => {
@@ -34,18 +47,10 @@ class EditOne extends Component {
   render() {
     return (
       <div>
-        <h2>Edit cat</h2>
+        <h2>Save cat</h2>
         {this.state.error && (
           <p style={{ color: "red" }}>please fill out all details</p>
         )}
-        <p style={{ color: "red" }}>{this.props.state.cats.err2}</p>
-        <input
-          name="id"
-          onChange={this.handleChange}
-          type="number"
-          placeholder="id"
-          value={this.state.id}
-        />
         <input
           name="name"
           onChange={this.handleChange}
@@ -81,12 +86,12 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = dispatch => {
   return {
-    EditOne: (id, name, location, age) =>
-      dispatch(editOneAction(id, name, location, age))
+    SaveOne: (name, location, age) =>
+      dispatch(saveOneAction(name, location, age))
   };
 };
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditOne);
+)(SaveOne);

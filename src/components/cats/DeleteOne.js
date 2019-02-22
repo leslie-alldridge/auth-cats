@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { deleteOneAction } from "../actions/deleteOne";
+import { deleteOneAction } from "../../actions/cats/deleteOne";
 
 class DeleteOne extends Component {
   constructor(props) {

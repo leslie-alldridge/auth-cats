@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
-import {getAllAction} from '../actions/getAll'
-import { loginUser } from "../actions/authActions/login";
+import { getAllAction } from "../../actions/cats/getAll";
+import { loginUser } from "../../actions/authActions/login";
 import ErrorMessage from "./ErrorMessage";
 
 class LoginForm extends React.Component {
@@ -83,7 +83,7 @@ const mapDispatchToProps = dispatch => {
       return dispatch(loginUser(creds));
     },
     getAll: () => {
-      return dispatch(getAllAction())
+      return dispatch(getAllAction());
     }
   };
 };

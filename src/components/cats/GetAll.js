@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import Loading from "./loading";
-import { getAllAction } from "../actions/getAll";
+import { getAllAction } from "../../actions/cats/getAll";
 
 class GetAll extends Component {
-
   getAll = () => {
     this.props.getAll();
   };

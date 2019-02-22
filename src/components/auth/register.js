@@ -1,7 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { registerUser, registerError } from "../actions/authActions/register";
+import {
+  registerUser,
+  registerError
+} from "../../actions/authActions/register";
 import ErrorMessage from "./ErrorMessage";
 
 class RegisterForm extends React.Component {
