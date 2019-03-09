@@ -13,8 +13,6 @@ export function getAllAction() {
   return function(dispatch) {
     dispatch(loading());
     axios.get("/api/v1/cats/").then(response => {
-      console.log(response);
-
       if (!response.status == 200) {
         dispatch(errorMessage(response.status));
       } else {

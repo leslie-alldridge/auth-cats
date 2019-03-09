@@ -45,9 +45,9 @@ class Nav extends React.Component {
               </React.Fragment>
             )}
             {this.props.auth.isAuthenticated && (
-              <li class="nav-item dropdown">
+              <li className="nav-item dropdown">
                 <a
-                  class="nav-link dropdown-toggle"
+                  className="nav-link dropdown-toggle"
                   href="#"
                   id="navbarDropdownMenuLink"
                   data-toggle="dropdown"
@@ -57,22 +57,22 @@ class Nav extends React.Component {
                   Cats
                 </a>
                 <div
-                  class="dropdown-menu"
+                  className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <a class="dropdown-item" href="/#/getall">
+                  <a className="dropdown-item" href="/#/getall">
                     Get All
                   </a>
-                  <a class="dropdown-item" href="/#/getone">
+                  <a className="dropdown-item" href="/#/getone">
                     Get One
                   </a>
-                  <a class="dropdown-item" href="/#/deleteone">
+                  <a className="dropdown-item" href="/#/deleteone">
                     Delete One
                   </a>
-                  <a class="dropdown-item" href="/#/editone">
+                  <a className="dropdown-item" href="/#/editone">
                     Edit One
                   </a>
-                  <a class="dropdown-item" href="/#/saveone">
+                  <a className="dropdown-item" href="/#/saveone">
                     Save One
                   </a>
                 </div>
