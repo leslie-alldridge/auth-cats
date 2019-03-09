@@ -40,11 +40,7 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             {/* only unauthenticated users can login */}
-            <Route
-              path="/"
-              component={Nav}
-              auth={this.props.auth.isAuthenticated}
-            />
+            <Route path="/" component={Nav} />
             {!this.props.auth.isAuthenticated && (
               // <LoginForm registerToggle={this.registerToggle} />
               <Route exact path="/login" component={LoginForm} />
