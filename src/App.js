@@ -40,7 +40,11 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             {/* only unauthenticated users can login */}
-            <Route path="/" component={Nav} />
+            <Route
+              path="/"
+              component={Nav}
+              auth={this.props.auth.isAuthenticated}
+            />
             {!this.props.auth.isAuthenticated && (
               // <LoginForm registerToggle={this.registerToggle} />
               <Route exact path="/login" component={LoginForm} />
@@ -55,16 +59,15 @@ class App extends Component {
             {this.props.auth.isAuthenticated && (
               <React.Fragment>
                 <Logout user={this.props.auth.user.username} />
-
                 <Route exact path="/getall" component={GetAll} />
                 <br />
                 <Route exact path="/getone" component={GetOne} />
                 <br />
                 <Route exact path="/saveone" component={SaveOne} />
                 <br />
-                <DeleteOne />
+                <Route exact path="/deleteone" component={DeleteOne} />
                 <br />
-                <EditOne />
+                <Route exact path="/editone" component={EditOne} />
               </React.Fragment>
             )}
           </header>

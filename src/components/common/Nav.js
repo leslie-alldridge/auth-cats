@@ -1,10 +1,11 @@
 import React from "react";
 
-export const Nav = () => {
+export const Nav = props => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <a className="navbar-brand" href="/">
         Auth Cats
+        {props.auth && <p>auths</p>}
       </a>
       <button
         className="navbar-toggler"
