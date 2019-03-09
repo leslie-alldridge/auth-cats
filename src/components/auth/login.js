@@ -44,6 +44,7 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div>
+        <h3>Login Page</h3>
         <form
           onSubmit={e => {
             this.handleClick(e);
@@ -61,13 +62,8 @@ class LoginForm extends React.Component {
             onChange={this.handleChange}
           />
           <button type="submit">Login</button>
-          <button
-            onClick={() => {
-              this.props.registerToggle();
-              this.handleError(); //if an error was previously shown, we clear it as they're trying again to submit
-            }}
-          >
-            Register
+          <button>
+            <a href="/#/"> Back</a>
           </button>
         </form>
         {/* If we get an error, render the error msg component */}

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { HashRouter as Router, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -32,37 +33,40 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          {/* only unauthenticated users can login */}
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            {/* only unauthenticated users can login */}
 
-          {!this.props.auth.isAuthenticated && !this.state.registerToggle && (
-            <LoginForm registerToggle={this.registerToggle} />
-          )}
+            {!this.props.auth.isAuthenticated && !this.state.registerToggle && (
+              // <LoginForm registerToggle={this.registerToggle} />
+              <Route exact path="/login" component={LoginForm} />
+            )}
 
-          {/* only unauthenticated users can register */}
-          {!this.props.auth.isAuthenticated && this.state.registerToggle && (
-            <RegisterForm registerToggle={this.registerToggle} />
-          )}
+            {/* only unauthenticated users can register */}
+            {!this.props.auth.isAuthenticated && this.state.registerToggle && (
+              <RegisterForm registerToggle={this.registerToggle} />
+            )}
 
-          {/* Only authenticated users can see logout and our other cat components - you can try force change the state but routes are protected so they'll just load indefinitely and no data will show */}
-          {this.props.auth.isAuthenticated && (
-            <React.Fragment>
-              <Logout user={this.props.auth.user.username} />
+            {/* Only authenticated users can see logout and our other cat components - you can try force change the state but routes are protected so they'll just load indefinitely and no data will show */}
+            {this.props.auth.isAuthenticated && (
+              <React.Fragment>
+                <Logout user={this.props.auth.user.username} />
 
-              <GetAll />
-              <br />
-              <GetOne />
-              <br />
-              <SaveOne />
-              <br />
-              <DeleteOne />
-              <br />
-              <EditOne />
-            </React.Fragment>
-          )}
-        </header>
-      </div>
+                <GetAll />
+                <br />
+                <GetOne />
+                <br />
+                <SaveOne />
+                <br />
+                <DeleteOne />
+                <br />
+                <EditOne />
+              </React.Fragment>
+            )}
+          </header>
+        </div>
+      </Router>
     );
   }
 }
