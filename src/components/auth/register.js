@@ -53,6 +53,7 @@ class RegisterForm extends React.Component {
     const { username, password, confirm } = this.state;
     return (
       <div>
+        <h3>Register Page</h3>
         <form
           onSubmit={e => {
             this.handleClick(e);
@@ -82,13 +83,8 @@ class RegisterForm extends React.Component {
           />
 
           <button type="submit">Register</button>
-          <button
-            onClick={() => {
-              this.props.registerToggle();
-              this.clearError(); //if an error was previously shown, we clear it as they're trying again to submit
-            }}
-          >
-            Back
+          <button>
+            <a href="/">Back</a>
           </button>
         </form>
 
