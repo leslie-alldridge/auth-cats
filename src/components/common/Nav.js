@@ -35,6 +35,29 @@ export const Nav = props => {
               Register
             </a>
           </li>
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Cats
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/#/getall">
+                Get All
+              </a>
+              <a class="dropdown-item" href="/#/getone">
+                Get One
+              </a>
+              <a class="dropdown-item" href="/#/deleteone">
+                Delete One
+              </a>
+            </div>
+          </li>
         </ul>
       </div>
     </nav>
