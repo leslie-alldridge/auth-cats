@@ -56,11 +56,11 @@ class App extends Component {
               <React.Fragment>
                 <Logout user={this.props.auth.user.username} />
 
-                <GetAll />
+                <Route exact path="/getall" component={GetAll} />
                 <br />
-                <GetOne />
+                <Route exact path="/getone" component={GetOne} />
                 <br />
-                <SaveOne />
+                <Route exact path="/saveone" component={SaveOne} />
                 <br />
                 <DeleteOne />
                 <br />
