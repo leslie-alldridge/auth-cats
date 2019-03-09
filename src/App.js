@@ -16,6 +16,9 @@ import LoginForm from "./components/auth/login";
 import RegisterForm from "./components/auth/register";
 import Logout from "./components/auth/logout";
 
+//other imports
+import Nav from "./components/common/Nav";
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -37,15 +40,15 @@ class App extends Component {
         <div className="App">
           <header className="App-header">
             {/* only unauthenticated users can login */}
-
-            {!this.props.auth.isAuthenticated && !this.state.registerToggle && (
+            <Route path="/" component={Nav} />
+            {!this.props.auth.isAuthenticated && (
               // <LoginForm registerToggle={this.registerToggle} />
               <Route exact path="/login" component={LoginForm} />
             )}
 
             {/* only unauthenticated users can register */}
-            {!this.props.auth.isAuthenticated && this.state.registerToggle && (
-              <RegisterForm registerToggle={this.registerToggle} />
+            {!this.props.auth.isAuthenticated && (
+              <Route exact path="/register" component={RegisterForm} />
             )}
 
             {/* Only authenticated users can see logout and our other cat components - you can try force change the state but routes are protected so they'll just load indefinitely and no data will show */}
