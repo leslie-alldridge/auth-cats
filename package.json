@@ -30,7 +30,8 @@
   },
   "scripts": {
     "dev": "nodemon --watch server server/index & webpack --watch",
-    "start": "node server/index"
+    "start": "node server/index",
+    "postinstall": "webpack"
   },
   "eslintConfig": {
     "extends": "react-app"
