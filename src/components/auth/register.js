@@ -5,7 +5,7 @@ import {
   registerUser,
   registerError
 } from "../../actions/authActions/register";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "./errorMessage";
 
 class RegisterForm extends React.Component {
   constructor(props) {

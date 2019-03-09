@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { getAllAction } from "../../actions/cats/getAll";
 import { loginUser } from "../../actions/authActions/login";
-import ErrorMessage from "./ErrorMessage";
+import ErrorMessage from "./errorMessage";
 
 class LoginForm extends React.Component {
   constructor(props) {
