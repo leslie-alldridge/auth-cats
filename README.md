@@ -12,7 +12,7 @@
 :joy_cat:
 :pouting_cat:
 
-## How to set up
+## How to set up (NPM commands are similar, please submit an issue if you want NPM commands included).
 
 1. Clone repository and run the commands below (first commands for development, second commands without page reload)
 
